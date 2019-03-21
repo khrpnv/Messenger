@@ -1,0 +1,32 @@
+PODS:
+  - LetterAvatarKit (1.1.5)
+  - MessageInputBar/Core (0.4.1)
+  - MessageKit (2.0.0):
+    - MessageInputBar/Core
+  - Scaledrone (0.3.0):
+    - Starscream (~> 2.1.0)
+  - Starscream (2.1.1)
+
+DEPENDENCIES:
+  - LetterAvatarKit
+  - MessageKit
+  - Scaledrone (~> 0.3.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - LetterAvatarKit
+    - MessageInputBar
+    - MessageKit
+    - Scaledrone
+    - Starscream
+
+SPEC CHECKSUMS:
+  LetterAvatarKit: 080050b8b27b73af83a2f17e9f82cf6628182250
+  MessageInputBar: e81c7535347f1f7b923de7080409a535a004b6e4
+  MessageKit: 29c1c87e5a396d2ca7a3f712e5171dc9aba42a1e
+  Scaledrone: 25e5e70107222ed50046fc0ed9569915bdb85262
+  Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
+
+PODFILE CHECKSUM: 4357e98a345ff9e8bb6c8f08f1ba27dcd1b829ff
+
+COCOAPODS: 1.5.3
