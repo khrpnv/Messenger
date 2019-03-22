@@ -13,13 +13,19 @@ import LetterAvatarKit
 
 class ChatViewController: MessagesViewController {
 
+    @IBOutlet private weak var ibNavigationBarTitles: UINavigationItem!
+    
     private var messages: [Message] = []
     private var user: User?
     private var chatService: ChatService?
     private var textColor: UIColor = .black
     var userName: String?
     var isDarkMode: Bool = false
-    
+    private var onlineUsersAmount: Int?{
+        didSet{
+            setTitles(onlineUsers: onlineUsersAmount ?? 0)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,15 @@ class ChatViewController: MessagesViewController {
         setupUser()
         setupChatService()
         setupChatUI()
+        setupObservers()
+        setTitles(onlineUsers: 0)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParent{
+            chatService?.disconnect()
+        }
     }
     
     //MARK: - Private methods
@@ -58,10 +73,34 @@ class ChatViewController: MessagesViewController {
         }
     }
     
+    private func setupObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUsersAmount), name: .NewUserJoinedChat, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUsersAmount), name: .UserLeftChat, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUsersAmount), name: .StartUserAmount, object: nil)
+    }
+    
+    private func setTitles(onlineUsers: Int){
+        var titleColor: UIColor = .black
+        var subtitleColor: UIColor = .gray
+        var messageText = "users"
+        if isDarkMode {
+            titleColor = .white
+            subtitleColor = .lightGray
+        }
+        if onlineUsers == 1 {
+            messageText = "user"
+        }
+        ibNavigationBarTitles.setTitle("Chat", subtitle: "\(onlineUsers) \(messageText) online", titleColor: titleColor, subtitleColor: subtitleColor)
+    }
+    
     private func setupDarkModeUI(){
         messagesCollectionView.backgroundColor = #colorLiteral(red: 0.2407439053, green: 0.3631132841, blue: 0.5904530287, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1316523552, green: 0.2483583391, blue: 0.4827849269, alpha: 1)
+        self.navigationController?.navigationBar.barStyle = .black
+        self.messageInputBar.backgroundView.backgroundColor = #colorLiteral(red: 0.1316523552, green: 0.2483583391, blue: 0.4827849269, alpha: 1)
+        self.messageInputBar.inputTextView.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
-
+    
 }
 
 //MARK: - Messages data source configuration
@@ -106,6 +145,7 @@ extension ChatViewController: MessagesDisplayDelegate{
         let message = messages[indexPath.section]
         let color = message.user.color
         avatarView.backgroundColor = color
+        avatarView.image = UIImage.makeLetterAvatar(withUsername: message.sender.displayName)
     }
 }
 
@@ -119,4 +159,13 @@ extension ChatViewController: MessageInputBarDelegate{
         chatService!.sendMessage(message: text)
         inputBar.inputTextView.text = ""
     }
+}
+
+//MARK: - Notifications
+extension ChatViewController{
+    
+    @objc func updateUsersAmount(){
+        onlineUsersAmount = chatService?.getAmountOfOnlineUsers() ?? 0
+    }
+    
 }

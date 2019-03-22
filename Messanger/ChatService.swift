@@ -14,6 +14,7 @@ class ChatService{
     private let messageCallback: (Message)-> Void
     
     private var room: ScaledroneRoom?
+    private var currentUsers: [ScaledroneMember] = []
     
     init(member: User, onRecievedMessage: @escaping (Message)-> Void) {
         self.messageCallback = onRecievedMessage
@@ -27,6 +28,10 @@ class ChatService{
         scaledrone.connect()
     }
     
+    func disconnect(){
+        scaledrone.disconnect()
+    }
+    
     func sendMessage(message:String){
         room?.publish(message: message)
     }
@@ -37,6 +42,7 @@ extension ChatService: ScaledroneDelegate{
     func scaledroneDidConnect(scaledrone: Scaledrone, error: NSError?) {
         room = scaledrone.subscribe(roomName: "observable-room")
         room?.delegate = self
+        room?.observableDelegate = self
     }
     
     func scaledroneDidReceiveError(scaledrone: Scaledrone, error: NSError?) {
@@ -61,4 +67,62 @@ extension ChatService: ScaledroneRoomDelegate{
         let message = Message(user: member, messageText: text, messageID: UUID().uuidString)
         messageCallback(message)
     }
+}
+
+//MARK: - Observable room delegate
+extension ChatService: ScaledroneObservableRoomDelegate{
+    
+    func scaledroneObservableRoomDidConnect(room: ScaledroneRoom, members: [ScaledroneMember]) {
+        currentUsers = members
+        NotificationCenter.default.post(name: .StartUserAmount, object: nil)
+    }
+    
+    func scaledroneObservableRoomMemberDidJoin(room: ScaledroneRoom, member: ScaledroneMember) {
+        newUserJoined(member: member)
+    }
+    
+    func scaledroneObservableRoomMemberDidLeave(room: ScaledroneRoom, member: ScaledroneMember) {
+        userLeftChat(member: member)
+    }
+    
+    
+}
+
+//MARK: - Methods for getting current users` list
+extension ChatService{
+    
+    //MARK: - Storage methods
+    private func newUserJoined(member: ScaledroneMember){
+        currentUsers.append(member)
+        NotificationCenter.default.post(name: .NewUserJoinedChat, object: nil)
+    }
+    
+    private func userLeftChat(member: ScaledroneMember){
+        var index = 0
+        for currentMember in currentUsers{
+            if currentMember.id == member.id{
+                break
+            } else {
+                index+=1
+            }
+        }
+        currentUsers.remove(at: index)
+        NotificationCenter.default.post(name: .UserLeftChat, object: nil)
+    }
+    
+    //MARK: - Public methods
+    func getCurrentUsers() -> [String: UIColor]{
+        var usersList:[String: UIColor] = [:]
+        for currentUser in currentUsers{
+            if let user = User(fromJSON: currentUser.clientData as Any){
+                usersList[user.name] = user.color
+            }
+        }
+        return usersList
+    }
+    
+    func getAmountOfOnlineUsers() -> Int{
+        return currentUsers.count
+    }
+    
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		958AEB625D937B88D6C311A2 /* Pods_Messanger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071466F1730E6C11A33E10CC /* Pods_Messanger.framework */; };
+		EA45A81622453207004B1E47 /* NSNotification.Name+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA45A81522453207004B1E47 /* NSNotification.Name+extension.swift */; };
+		EA45A81822453BF1004B1E47 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA45A81722453BF1004B1E47 /* UsersListViewController.swift */; };
+		EA45A81A22453D13004B1E47 /* UINavigationItem+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA45A81922453D13004B1E47 /* UINavigationItem+extension.swift */; };
 		EA570A0F224443B6003CDA4F /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA570A0E224443B6003CDA4F /* InternetConnection.swift */; };
 		EA570A11224447B1003CDA4F /* UIAlertController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA570A10224447B1003CDA4F /* UIAlertController+extension.swift */; };
 		EAA0D7B42243C26D0095067E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA0D7B32243C26D0095067E /* AppDelegate.swift */; };
@@ -26,6 +29,9 @@
 		071466F1730E6C11A33E10CC /* Pods_Messanger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Messanger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA2DDC47BE8AF24200B70D7 /* Pods-Messanger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messanger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Messanger/Pods-Messanger.release.xcconfig"; sourceTree = "<group>"; };
 		B4A30E0B66F442EC55CBB778 /* Pods-Messanger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messanger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Messanger/Pods-Messanger.debug.xcconfig"; sourceTree = "<group>"; };
+		EA45A81522453207004B1E47 /* NSNotification.Name+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+extension.swift"; sourceTree = "<group>"; };
+		EA45A81722453BF1004B1E47 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		EA45A81922453D13004B1E47 /* UINavigationItem+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+extension.swift"; sourceTree = "<group>"; };
 		EA570A0E224443B6003CDA4F /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		EA570A10224447B1003CDA4F /* UIAlertController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+extension.swift"; sourceTree = "<group>"; };
 		EAA0D7B02243C26D0095067E /* Messanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +124,7 @@
 				EAA0D7B72243C26D0095067E /* Main.storyboard */,
 				EAF6335F2243D94500D9BED6 /* ProfileViewController.swift */,
 				EAA0D7C52243C4F30095067E /* ChatViewController.swift */,
+				EA45A81722453BF1004B1E47 /* UsersListViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -144,6 +151,8 @@
 			children = (
 				EAF6335B2243D26C00D9BED6 /* UIColor+extension.swift */,
 				EA570A10224447B1003CDA4F /* UIAlertController+extension.swift */,
+				EA45A81522453207004B1E47 /* NSNotification.Name+extension.swift */,
+				EA45A81922453D13004B1E47 /* UINavigationItem+extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -289,9 +298,12 @@
 				EAF6335E2243D4CF00D9BED6 /* ChatService.swift in Sources */,
 				EA570A11224447B1003CDA4F /* UIAlertController+extension.swift in Sources */,
 				EAF633572243CB3E00D9BED6 /* Message.swift in Sources */,
+				EA45A81A22453D13004B1E47 /* UINavigationItem+extension.swift in Sources */,
 				EAF6335C2243D26C00D9BED6 /* UIColor+extension.swift in Sources */,
 				EA570A0F224443B6003CDA4F /* InternetConnection.swift in Sources */,
+				EA45A81622453207004B1E47 /* NSNotification.Name+extension.swift in Sources */,
 				EAA0D7B42243C26D0095067E /* AppDelegate.swift in Sources */,
+				EA45A81822453BF1004B1E47 /* UsersListViewController.swift in Sources */,
 				EAF633602243D94500D9BED6 /* ProfileViewController.swift in Sources */,
 				EAF633552243CB1400D9BED6 /* User.swift in Sources */,
 			);
