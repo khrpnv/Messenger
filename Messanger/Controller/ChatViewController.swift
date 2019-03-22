@@ -44,6 +44,12 @@ class ChatViewController: MessagesViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC = segue.destination as? UsersListViewController, segue.identifier == "showChatInfo"{
+            destVC.chatService = chatService
+            destVC.isDarkModeOn = isDarkMode
+        }
+    }
     //MARK: - Private methods
     private func setupDelegates(){
         messagesCollectionView.messagesDataSource = self

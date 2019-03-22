@@ -19,7 +19,7 @@ class ChatService{
     init(member: User, onRecievedMessage: @escaping (Message)-> Void) {
         self.messageCallback = onRecievedMessage
         self.scaledrone = Scaledrone(
-            channelID: "VZ0bRmvuqInf4FAr",
+            channelID: "yDjBvdCIONUKsTAQ",
             data: member.toJSON)
         scaledrone.delegate = self
     }
@@ -111,11 +111,11 @@ extension ChatService{
     }
     
     //MARK: - Public methods
-    func getCurrentUsers() -> [String: UIColor]{
-        var usersList:[String: UIColor] = [:]
+    func getCurrentUsers() -> [User]{
+        var usersList:[User] = []
         for currentUser in currentUsers{
             if let user = User(fromJSON: currentUser.clientData as Any){
-                usersList[user.name] = user.color
+                usersList.append(user)
             }
         }
         return usersList
