@@ -68,12 +68,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EA570A0D224443A0003CDA4F /* Utilities */ = {
+		EA2229D6224551B8004EF13E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EAF633542243CB1400D9BED6 /* User.swift */,
+				EAF633562243CB3E00D9BED6 /* Message.swift */,
+				EAF6335D2243D4CF00D9BED6 /* ChatService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EA2229D7224551CE004EF13E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EA2229D8224551D9004EF13E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EAA0D7B72243C26D0095067E /* Main.storyboard */,
+				EAF6335F2243D94500D9BED6 /* ProfileViewController.swift */,
+				EAA0D7C52243C4F30095067E /* ChatViewController.swift */,
+				EA45A81722453BF1004B1E47 /* UsersListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EA2229D9224551F2004EF13E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				EA570A0E224443B6003CDA4F /* InternetConnection.swift */,
 			);
-			name = Utilities;
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EA2229DA22455203004EF13E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EAF6335B2243D26C00D9BED6 /* UIColor+extension.swift */,
+				EA570A10224447B1003CDA4F /* UIAlertController+extension.swift */,
+				EA45A81522453207004B1E47 /* NSNotification.Name+extension.swift */,
+				EA45A81922453D13004B1E47 /* UINavigationItem+extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EAA0D7A72243C26D0095067E = {
@@ -97,11 +136,11 @@
 		EAA0D7B22243C26D0095067E /* Messanger */ = {
 			isa = PBXGroup;
 			children = (
-				EAA0D7CA2243C5280095067E /* Model */,
-				EAA0D7C92243C5230095067E /* View */,
-				EAA0D7C82243C51B0095067E /* Controller */,
-				EAF633582243D22000D9BED6 /* Extensions */,
-				EA570A0D224443A0003CDA4F /* Utilities */,
+				EA2229D6224551B8004EF13E /* Model */,
+				EA2229D7224551CE004EF13E /* View */,
+				EA2229D8224551D9004EF13E /* Controller */,
+				EA2229DA22455203004EF13E /* Extensions */,
+				EA2229D9224551F2004EF13E /* Utilities */,
 				EAA0D7C72243C4FB0095067E /* Supporting files */,
 			);
 			path = Messanger;
@@ -116,45 +155,6 @@
 				EAA0D7B32243C26D0095067E /* AppDelegate.swift */,
 			);
 			name = "Supporting files";
-			sourceTree = "<group>";
-		};
-		EAA0D7C82243C51B0095067E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				EAA0D7B72243C26D0095067E /* Main.storyboard */,
-				EAF6335F2243D94500D9BED6 /* ProfileViewController.swift */,
-				EAA0D7C52243C4F30095067E /* ChatViewController.swift */,
-				EA45A81722453BF1004B1E47 /* UsersListViewController.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		EAA0D7C92243C5230095067E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		EAA0D7CA2243C5280095067E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EAF633542243CB1400D9BED6 /* User.swift */,
-				EAF633562243CB3E00D9BED6 /* Message.swift */,
-				EAF6335D2243D4CF00D9BED6 /* ChatService.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		EAF633582243D22000D9BED6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				EAF6335B2243D26C00D9BED6 /* UIColor+extension.swift */,
-				EA570A10224447B1003CDA4F /* UIAlertController+extension.swift */,
-				EA45A81522453207004B1E47 /* NSNotification.Name+extension.swift */,
-				EA45A81922453D13004B1E47 /* UINavigationItem+extension.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 		F0DE38B4B7776AA75FAB190F /* Pods */ = {
@@ -463,7 +463,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.captainblack.Messanger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -483,7 +483,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.captainblack.Messanger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
