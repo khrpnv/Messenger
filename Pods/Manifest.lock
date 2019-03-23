@@ -6,11 +6,13 @@ PODS:
   - Scaledrone (0.3.0):
     - Starscream (~> 2.1.0)
   - Starscream (2.1.1)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
   - LetterAvatarKit
   - MessageKit
   - Scaledrone (~> 0.3.0)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -19,6 +21,7 @@ SPEC REPOS:
     - MessageKit
     - Scaledrone
     - Starscream
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   LetterAvatarKit: 080050b8b27b73af83a2f17e9f82cf6628182250
@@ -26,7 +29,8 @@ SPEC CHECKSUMS:
   MessageKit: 29c1c87e5a396d2ca7a3f712e5171dc9aba42a1e
   Scaledrone: 25e5e70107222ed50046fc0ed9569915bdb85262
   Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 4357e98a345ff9e8bb6c8f08f1ba27dcd1b829ff
+PODFILE CHECKSUM: d3cb047cf8e258ee3773f2fcc6a5474272ac5591
 
 COCOAPODS: 1.5.3

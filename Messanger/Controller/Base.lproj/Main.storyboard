@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EeF-MP-Ud2">
-                                <rect key="frame" x="10" y="319" width="355" height="101"/>
+                                <rect key="frame" x="10" y="319" width="355" height="156"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-3u-1Ad">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-3u-1Ad">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LTM-Hl-RIi"/>
@@ -30,21 +30,45 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8a-Y8-iJX">
-                                        <rect key="frame" x="0.0" y="55" width="355" height="46"/>
-                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" title="Enter Chat">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="enterChatButtonPressed:" destination="RIu-zd-sU0" eventType="touchUpInside" id="d0c-KL-6jH"/>
-                                        </connections>
-                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-hU-hVf">
+                                        <rect key="frame" x="0.0" y="55" width="355" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="wAb-Cn-3Uc"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wqs-h8-33V">
+                                        <rect key="frame" x="0.0" y="110" width="355" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8a-Y8-iJX">
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="46"/>
+                                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <state key="normal" title="Log in">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logInButtonPressed:" destination="RIu-zd-sU0" eventType="touchUpInside" id="Wfh-3H-rS9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fr-uB-c75">
+                                                <rect key="frame" x="185" y="0.0" width="170" height="46"/>
+                                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <state key="normal" title="Sign up">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Jbz-3u-1Ad" firstAttribute="width" secondItem="EeF-MP-Ud2" secondAttribute="width" id="1Wa-6a-n6N"/>
-                                    <constraint firstItem="x8a-Y8-iJX" firstAttribute="width" secondItem="EeF-MP-Ud2" secondAttribute="width" id="DgL-Uk-g2V"/>
+                                    <constraint firstItem="Wqs-h8-33V" firstAttribute="leading" secondItem="EeF-MP-Ud2" secondAttribute="leading" id="DLz-6W-312"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wqs-h8-33V" secondAttribute="trailing" id="Hej-KM-qJQ"/>
+                                    <constraint firstItem="Jbz-3u-1Ad" firstAttribute="width" secondItem="Y9b-hU-hVf" secondAttribute="width" id="hnT-5c-ZVy"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="cLJ-D7-frh">
@@ -94,6 +118,7 @@
                         <outlet property="ibDarkModeSwicth" destination="cBZ-B7-YnP" id="8F9-3y-CLS"/>
                         <outlet property="ibNavigationBar" destination="6ad-7Y-LBz" id="aLC-Da-wVz"/>
                         <outlet property="ibUserNameTextField" destination="Jbz-3u-1Ad" id="xfU-ap-XvA"/>
+                        <outlet property="ibUserPasswordTextField" destination="Y9b-hU-hVf" id="Adb-ro-wy2"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="startChating" id="X5N-EQ-Dl1"/>
                     </connections>
                 </viewController>

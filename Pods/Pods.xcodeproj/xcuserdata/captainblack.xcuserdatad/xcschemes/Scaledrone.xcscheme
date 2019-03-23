@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB63E56E50E43AB5B2870F2E885CB85B"
+               BlueprintIdentifier = "11F8F87AC8A8FCD515DCED2815C8CA27"
                BlueprintName = "Scaledrone"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Scaledrone.framework">

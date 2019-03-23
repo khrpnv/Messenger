@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet private weak var ibUserPasswordTextField: UITextField!
     @IBOutlet private weak var ibUserNameTextField: UITextField!
     @IBOutlet private weak var ibDarkModeSwicth: UISwitch!
     @IBOutlet private weak var ibDarkModeLabel: UILabel!
@@ -18,6 +19,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ibUserNameTextField.delegate = self
+        DataManager.instance.getUserDataFromFile()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -28,7 +30,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBAction private func enterChatButtonPressed(_ sender: Any) {
+    @IBAction private func logInButtonPressed(_ sender: Any) {
         let userName = ibUserNameTextField.text ?? ""
         if userName.isEmpty{
             ibUserNameTextField.layer.borderWidth = 1
@@ -37,7 +39,7 @@ class ProfileViewController: UIViewController {
             return
         } else if !checkInternetConnection(){
             return
-        } else {
+        } else if checkLogInData(){
             performSegue(withIdentifier: "startChating", sender: nil)
         }
     }
@@ -53,9 +55,8 @@ class ProfileViewController: UIViewController {
     private func setupDarkModeUI(){
         view.backgroundColor = #colorLiteral(red: 0.1141847298, green: 0.2072634995, blue: 0.4036407769, alpha: 1)
         ibDarkModeLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        ibUserNameTextField.backgroundColor = #colorLiteral(red: 0.08464363962, green: 0.1582129598, blue: 0.3077071011, alpha: 1)
-        ibUserNameTextField.attributedPlaceholder = NSAttributedString(string: "Full name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        ibUserNameTextField.textColor = UIColor.white
+        ibUserNameTextField.darkModeStyle(placeholder: "Login")
+        ibUserPasswordTextField.darkModeStyle(placeholder: "Password")
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1316523552, green: 0.2483583391, blue: 0.4827849269, alpha: 1)
         self.navigationController?.navigationBar.barStyle = .black
     }
@@ -63,9 +64,8 @@ class ProfileViewController: UIViewController {
     private func setupLightModeUI(){
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         ibDarkModeLabel.textColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-        ibUserNameTextField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        ibUserNameTextField.attributedPlaceholder = NSAttributedString(string: "Full name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        ibUserNameTextField.textColor = UIColor.black
+        ibUserNameTextField.lightModeStyle(placeholder: "Login")
+        ibUserPasswordTextField.lightModeStyle(placeholder: "Password")
         self.navigationController?.navigationBar.barTintColor = nil
         self.navigationController?.navigationBar.barStyle = .default
     }
@@ -77,6 +77,17 @@ class ProfileViewController: UIViewController {
             self.present(UIAlertController.presentNoInternetAlertMessage(), animated: true, completion: nil)
             return false
         }
+    }
+    
+    private func checkLogInData() -> Bool{
+        let inputtedLogin = ibUserNameTextField.text ?? ""
+        let inputtedPassword = ibUserPasswordTextField.text ?? ""
+        if DataManager.instance.logins.contains(inputtedLogin){
+            if inputtedPassword == DataManager.instance.passwords[DataManager.instance.logins.firstIndex(of: inputtedLogin) ?? 0]{
+                return true
+            }
+        }
+        return false
     }
 }
 

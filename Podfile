@@ -9,5 +9,6 @@ target 'Messanger' do
   pod 'MessageKit'
   pod 'Scaledrone', '~> 0.3.0'
   pod 'LetterAvatarKit'
+  pod 'SwiftyJSON', '~> 4.0'
 
 end

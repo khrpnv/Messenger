@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		958AEB625D937B88D6C311A2 /* Pods_Messanger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071466F1730E6C11A33E10CC /* Pods_Messanger.framework */; };
+		EA10F240224605A100A96EE4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA10F23F224605A100A96EE4 /* DataManager.swift */; };
 		EA3F67C8224586F200B4E220 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F67C7224586F200B4E220 /* UserTableViewCell.swift */; };
 		EA3F67CA224587B400B4E220 /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F67C9224587B400B4E220 /* UIImageView+extension.swift */; };
 		EA45A81622453207004B1E47 /* NSNotification.Name+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA45A81522453207004B1E47 /* NSNotification.Name+extension.swift */; };
@@ -20,6 +21,7 @@
 		EAA0D7BB2243C26F0095067E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAA0D7BA2243C26F0095067E /* Assets.xcassets */; };
 		EAA0D7BE2243C26F0095067E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAA0D7BC2243C26F0095067E /* LaunchScreen.storyboard */; };
 		EAA0D7C62243C4F30095067E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA0D7C52243C4F30095067E /* ChatViewController.swift */; };
+		EAC4216B22462494000F45FB /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4216A22462494000F45FB /* UITextField.swift */; };
 		EAF633552243CB1400D9BED6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF633542243CB1400D9BED6 /* User.swift */; };
 		EAF633572243CB3E00D9BED6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF633562243CB3E00D9BED6 /* Message.swift */; };
 		EAF6335C2243D26C00D9BED6 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF6335B2243D26C00D9BED6 /* UIColor+extension.swift */; };
@@ -31,6 +33,7 @@
 		071466F1730E6C11A33E10CC /* Pods_Messanger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Messanger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA2DDC47BE8AF24200B70D7 /* Pods-Messanger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messanger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Messanger/Pods-Messanger.release.xcconfig"; sourceTree = "<group>"; };
 		B4A30E0B66F442EC55CBB778 /* Pods-Messanger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messanger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Messanger/Pods-Messanger.debug.xcconfig"; sourceTree = "<group>"; };
+		EA10F23F224605A100A96EE4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		EA3F67C7224586F200B4E220 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		EA3F67C9224587B400B4E220 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
 		EA45A81522453207004B1E47 /* NSNotification.Name+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+extension.swift"; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		EAA0D7BD2243C26F0095067E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAA0D7BF2243C26F0095067E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAA0D7C52243C4F30095067E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		EAC4216A22462494000F45FB /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		EAF633542243CB1400D9BED6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EAF633562243CB3E00D9BED6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		EAF6335B2243D26C00D9BED6 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				EA570A0E224443B6003CDA4F /* InternetConnection.swift */,
+				EA10F23F224605A100A96EE4 /* DataManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 				EA45A81522453207004B1E47 /* NSNotification.Name+extension.swift */,
 				EA45A81922453D13004B1E47 /* UINavigationItem+extension.swift */,
 				EA3F67C9224587B400B4E220 /* UIImageView+extension.swift */,
+				EAC4216A22462494000F45FB /* UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,6 +283,7 @@
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Scaledrone/Scaledrone.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -287,6 +294,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Scaledrone.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -301,7 +309,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAA0D7C62243C4F30095067E /* ChatViewController.swift in Sources */,
+				EA10F240224605A100A96EE4 /* DataManager.swift in Sources */,
 				EAF6335E2243D4CF00D9BED6 /* ChatService.swift in Sources */,
+				EAC4216B22462494000F45FB /* UITextField.swift in Sources */,
 				EA570A11224447B1003CDA4F /* UIAlertController+extension.swift in Sources */,
 				EAF633572243CB3E00D9BED6 /* Message.swift in Sources */,
 				EA3F67C8224586F200B4E220 /* UserTableViewCell.swift in Sources */,
