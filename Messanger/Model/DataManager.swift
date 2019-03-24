@@ -67,6 +67,13 @@ final class DataManager{
     func addNewAccount(login: String, password: String){
         logins.append(login)
         passwords.append(password)
+        createJSONFile()
+    }
+    
+    func deleteAccount(at index: Int){
+        logins.remove(at: index)
+        passwords.remove(at: index)
+        createJSONFile()
     }
     
     func createJSONFile(){

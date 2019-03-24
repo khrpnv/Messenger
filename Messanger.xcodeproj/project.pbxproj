@@ -27,6 +27,9 @@
 		EAF6335C2243D26C00D9BED6 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF6335B2243D26C00D9BED6 /* UIColor+extension.swift */; };
 		EAF6335E2243D4CF00D9BED6 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF6335D2243D4CF00D9BED6 /* ChatService.swift */; };
 		EAF633602243D94500D9BED6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF6335F2243D94500D9BED6 /* ProfileViewController.swift */; };
+		EAF94D1C2247D28B000A4A48 /* LocalAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF94D1B2247D28B000A4A48 /* LocalAccountsViewController.swift */; };
+		EAF94D1E2247D3C0000A4A48 /* LocalAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF94D1D2247D3C0000A4A48 /* LocalAccountTableViewCell.swift */; };
+		EAF94D212247DB0A000A4A48 /* LocalAccountProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF94D202247DB0A000A4A48 /* LocalAccountProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		EAF6335B2243D26C00D9BED6 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		EAF6335D2243D4CF00D9BED6 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		EAF6335F2243D94500D9BED6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EAF94D1B2247D28B000A4A48 /* LocalAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAccountsViewController.swift; sourceTree = "<group>"; };
+		EAF94D1D2247D3C0000A4A48 /* LocalAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAccountTableViewCell.swift; sourceTree = "<group>"; };
+		EAF94D202247DB0A000A4A48 /* LocalAccountProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAccountProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 				EAF633542243CB1400D9BED6 /* User.swift */,
 				EAF633562243CB3E00D9BED6 /* Message.swift */,
 				EAF6335D2243D4CF00D9BED6 /* ChatService.swift */,
+				EA10F23F224605A100A96EE4 /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -90,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				EA3F67C7224586F200B4E220 /* UserTableViewCell.swift */,
+				EAF94D1D2247D3C0000A4A48 /* LocalAccountTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -101,6 +109,7 @@
 				EAF6335F2243D94500D9BED6 /* ProfileViewController.swift */,
 				EAA0D7C52243C4F30095067E /* ChatViewController.swift */,
 				EA45A81722453BF1004B1E47 /* UsersListViewController.swift */,
+				EAF94D1B2247D28B000A4A48 /* LocalAccountsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				EA570A0E224443B6003CDA4F /* InternetConnection.swift */,
-				EA10F23F224605A100A96EE4 /* DataManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -153,6 +161,7 @@
 				EA2229D8224551D9004EF13E /* Controller */,
 				EA2229DA22455203004EF13E /* Extensions */,
 				EA2229D9224551F2004EF13E /* Utilities */,
+				EAF94D1F2247DAF1000A4A48 /* Protocols */,
 				EAA0D7C72243C4FB0095067E /* Supporting files */,
 			);
 			path = Messanger;
@@ -167,6 +176,14 @@
 				EAA0D7B32243C26D0095067E /* AppDelegate.swift */,
 			);
 			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		EAF94D1F2247DAF1000A4A48 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EAF94D202247DB0A000A4A48 /* LocalAccountProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		F0DE38B4B7776AA75FAB190F /* Pods */ = {
@@ -314,12 +331,15 @@
 				EAC4216B22462494000F45FB /* UITextField.swift in Sources */,
 				EA570A11224447B1003CDA4F /* UIAlertController+extension.swift in Sources */,
 				EAF633572243CB3E00D9BED6 /* Message.swift in Sources */,
+				EAF94D212247DB0A000A4A48 /* LocalAccountProtocol.swift in Sources */,
 				EA3F67C8224586F200B4E220 /* UserTableViewCell.swift in Sources */,
 				EA45A81A22453D13004B1E47 /* UINavigationItem+extension.swift in Sources */,
 				EAF6335C2243D26C00D9BED6 /* UIColor+extension.swift in Sources */,
 				EA570A0F224443B6003CDA4F /* InternetConnection.swift in Sources */,
 				EA45A81622453207004B1E47 /* NSNotification.Name+extension.swift in Sources */,
+				EAF94D1E2247D3C0000A4A48 /* LocalAccountTableViewCell.swift in Sources */,
 				EAA0D7B42243C26D0095067E /* AppDelegate.swift in Sources */,
+				EAF94D1C2247D28B000A4A48 /* LocalAccountsViewController.swift in Sources */,
 				EA3F67CA224587B400B4E220 /* UIImageView+extension.swift in Sources */,
 				EA45A81822453BF1004B1E47 /* UsersListViewController.swift in Sources */,
 				EAF633602243D94500D9BED6 /* ProfileViewController.swift in Sources */,

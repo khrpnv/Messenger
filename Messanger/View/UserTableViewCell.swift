@@ -11,11 +11,15 @@ import LetterAvatarKit
 
 class UserTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var ibUserAvatarView: UIImageView!
+    @IBOutlet private weak var ibUserAvatarView: UIImageView!
     @IBOutlet private weak var ibUserFullNameLabel: UILabel!
+    
+    var textLabelColor: UIColor?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
     }
     
     func updateCell(user: User){
@@ -23,6 +27,7 @@ class UserTableViewCell: UITableViewCell {
         ibUserAvatarView.backgroundColor = user.color
         ibUserAvatarView.image = UIImage.makeLetterAvatar(withUsername: user.name)
         ibUserFullNameLabel.text = user.name
+        ibUserFullNameLabel.textColor = textLabelColor
     }
 
 }

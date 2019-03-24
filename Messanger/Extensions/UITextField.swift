@@ -20,4 +20,10 @@ extension UITextField{
         self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         self.textColor = UIColor.black
     }
+    
+    func alertTextFieldStyle(){
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 5
+        self.layer.borderColor = UIColor.red.cgColor
+    }
 }

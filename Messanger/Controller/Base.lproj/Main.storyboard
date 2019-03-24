@@ -10,6 +10,64 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Local Accounts-->
+        <scene sceneID="bDf-Ts-Tk9">
+            <objects>
+                <viewController id="dlO-bO-aq5" customClass="LocalAccountsViewController" customModule="Messanger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wnE-bZ-rzF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ko1-gV-njF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="localAccountInfo" id="r5A-h5-jgO" customClass="LocalAccountTableViewCell" customModule="Messanger" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r5A-h5-jgO" id="7fm-wA-kJ4">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdq-Kd-7Jy">
+                                                    <rect key="frame" x="15" y="11" width="319" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Vdq-Kd-7Jy" firstAttribute="leading" secondItem="7fm-wA-kJ4" secondAttribute="leadingMargin" id="NLu-Qr-aop"/>
+                                                <constraint firstItem="Vdq-Kd-7Jy" firstAttribute="top" secondItem="7fm-wA-kJ4" secondAttribute="topMargin" id="ZGv-52-n2c"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Vdq-Kd-7Jy" secondAttribute="trailing" id="pmp-wF-ta0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Vdq-Kd-7Jy" secondAttribute="bottom" id="q8L-5d-PdH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ibUserNameLabel" destination="Vdq-Kd-7Jy" id="rdt-yR-e1C"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ko1-gV-njF" firstAttribute="leading" secondItem="01q-9t-JqJ" secondAttribute="leading" id="85j-TB-6Ko"/>
+                            <constraint firstItem="01q-9t-JqJ" firstAttribute="bottom" secondItem="ko1-gV-njF" secondAttribute="bottom" id="EWe-2t-kyi"/>
+                            <constraint firstItem="ko1-gV-njF" firstAttribute="top" secondItem="01q-9t-JqJ" secondAttribute="top" id="bMG-s4-ejr"/>
+                            <constraint firstItem="01q-9t-JqJ" firstAttribute="trailing" secondItem="ko1-gV-njF" secondAttribute="trailing" id="qbh-bR-No8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="01q-9t-JqJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Local Accounts" id="xCp-Qn-bqp"/>
+                    <connections>
+                        <outlet property="tableView" destination="ko1-gV-njF" id="shO-Oy-6hd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uqJ-mX-k8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="-697"/>
+        </scene>
         <!--Menu-->
         <scene sceneID="GYJ-Gl-7Eo">
             <objects>
@@ -21,7 +79,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EeF-MP-Ud2">
                                 <rect key="frame" x="10" y="319" width="355" height="156"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-3u-1Ad">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-3u-1Ad">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LTM-Hl-RIi"/>
@@ -60,6 +118,9 @@
                                                 <state key="normal" title="Sign up">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="signUpButtonPressed:" destination="RIu-zd-sU0" eventType="touchUpInside" id="siz-WZ-kV2"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -112,7 +173,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YPr-zE-gJ3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Menu" id="6ad-7Y-LBz"/>
+                    <navigationItem key="navigationItem" title="Menu" id="6ad-7Y-LBz">
+                        <barButtonItem key="leftBarButtonItem" title="Accounts" id="iPe-Nh-sgb">
+                            <connections>
+                                <segue destination="dlO-bO-aq5" kind="show" identifier="localAccountsInfo" id="hkv-Hn-TRc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ibDarkModeLabel" destination="TRF-LU-eEO" id="B4r-BE-my3"/>
                         <outlet property="ibDarkModeSwicth" destination="cBZ-B7-YnP" id="8F9-3y-CLS"/>
@@ -149,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576.79999999999995" y="40.929535232383813"/>
+            <point key="canvasLocation" x="577" y="41"/>
         </scene>
         <!--Chat Info-->
         <scene sceneID="Do6-17-663">

@@ -1,59 +1,33 @@
 //
-//  UsersListViewController.swift
+//  LocalAccountsViewController.swift
 //  Messanger
 //
-//  Created by Илья on 3/22/19.
+//  Created by Илья on 3/24/19.
 //  Copyright © 2019 Илья. All rights reserved.
 //
 
 import UIKit
-import MessageKit
 
-class UsersListViewController: UIViewController {
+class LocalAccountsViewController: UIViewController {
+
+    var dataSource: [String] = []
+    var cellData: String = ""
+    var delegate: LocalAccountProtocol?
+    var isDarkMode: Bool = false
     
     @IBOutlet private weak var tableView: UITableView!
     
-    var chatService: ChatService?
-    var isDarkModeOn: Bool = false
-    
-    private var dataSource: [User] = []{
-        didSet{
-            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDelegates()
-        setupObservers()
-        setupDataSource()
-        setupViewMode()
-    }
-    
-    //MARK: - Setup methods
-    func setupDelegates(){
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    func setupObservers(){
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUsersList), name: .NewUserJoinedChat, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUsersList), name: .UserLeftChat, object: nil)
-    }
-    
-    func setupDataSource(){
-        dataSource = chatService?.getCurrentUsers() ?? []
-    }
-    
-    func setupViewMode(){
-        if isDarkModeOn{
+        if isDarkMode{
             darkModeUI()
         } else {
             lightModeUI()
         }
     }
     
-    //Interface view methods
     private func darkModeUI(){
         tableView.backgroundColor = #colorLiteral(red: 0.1067128852, green: 0.1615819931, blue: 0.265824914, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1316523552, green: 0.2483583391, blue: 0.4827849269, alpha: 1)
@@ -69,44 +43,50 @@ class UsersListViewController: UIViewController {
 }
 
 //MARK: - Table view configuration
-extension UsersListViewController: UITableViewDelegate, UITableViewDataSource{
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+extension LocalAccountsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? UserTableViewCell else {
-            fatalError("Error: Cell doesn`t exist")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "localAccountInfo", for: indexPath) as? LocalAccountTableViewCell else {
+            fatalError("Error: Cell doesn`t exsit")
         }
-        if isDarkModeOn {
+        if isDarkMode {
             cell.textLabelColor = UIColor.white
         } else {
             cell.textLabelColor = UIColor.black
         }
-        cell.updateCell(user: dataSource[indexPath.row])
+        cell.updateCellInfo(name: dataSource[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cellData = dataSource[indexPath.row]
+        navigationController?.popViewController(animated: true)
+        delegate?.accountSelected(accountName: cellData)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = tableView.backgroundColor
     }
     
-}
-
-//MARK: - Notifications
-extension UsersListViewController{
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
-    @objc private func updateUsersList(){
-        setupDataSource()
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            DataManager.instance.deleteAccount(at: indexPath.row)
+            dataSource = DataManager.instance.logins
+            tableView.reloadSections(IndexSet(integer: 0), with: .left)
+        }
     }
     
 }
+
